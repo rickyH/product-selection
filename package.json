@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src",
-    "start": "node server.js",
-    "build": "BABEL_ENV=production ./node_modules/.bin/webpack --config webpack.config.production.js",
+    "start": "node webpack/webpack-dev-server.js",
+    "build": "BABEL_ENV=production ./node_modules/.bin/webpack --config webpack/webpack.config.production.js",
     "test": "karma start",
     "test-api": "./node_modules/mocha/bin/mocha $(find src -name '*Test.js') --compilers js:babel-core/register"
   },

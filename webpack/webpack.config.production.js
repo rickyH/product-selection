@@ -38,7 +38,7 @@ module.exports = {
       {
         test: /\.jsx?/,
         loader: 'babel',
-        include: path.join(__dirname, 'src'),
+        include: path.join(__dirname, '../src')
         exclude: /node_modules/
       },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },

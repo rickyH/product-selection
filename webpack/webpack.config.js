@@ -29,7 +29,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: path.join(__dirname, 'src')
+      include: path.join(__dirname, '../src')
     },
     { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
     { test: /\.scss$/i, loader: extractCSS.extract(['css', 'sass']) }
