@@ -1,8 +1,8 @@
 {
-  "name": "product-selection",
+  "name": "react-lightweight-boiler",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A lightweight boilerplate featuring React, Redux, Webpack, Sass.",
+  "main": "server.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src",
     "start": "node server.js",
