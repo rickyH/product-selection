@@ -7,6 +7,7 @@
     "lint": "./node_modules/.bin/eslint src",
     "start": "node webpack/webpack-dev-server.js",
     "build": "BABEL_ENV=production ./node_modules/.bin/webpack --config webpack/webpack.config.production.js",
+    "api": "node bin/api.js",
     "test": "karma start",
     "test-api": "./node_modules/mocha/bin/mocha $(find src -name '*Test.js') --compilers js:babel-core/register"
   },
@@ -51,6 +52,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "babel-register": "^6.8.0",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.3",
     "react-dom": "^15.0.2",
