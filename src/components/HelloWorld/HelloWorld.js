@@ -1,5 +1,6 @@
 require('./Helloworld.scss');
 import React, { Component, PropTypes } from 'react';
+import { Button } from 'react-bootstrap';
 
 export default class HelloWorld extends Component {
   static propTypes = {
@@ -42,6 +43,7 @@ export default class HelloWorld extends Component {
         <span>
           {this.state.counter}
         </span>
+        <Button> Increment </Button>
       </div>
     );
   }
