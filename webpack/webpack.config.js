@@ -34,6 +34,14 @@ module.exports = {
     { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
     { test: /\.scss$/i, loader: extractCSS.extract(['css', 'sass']) }
    ]
+ },
+ progress: true,
+ resolve: {
+    modulesDirectories: [
+      'src',
+      'node_modules'
+    ],
+    extensions: ['', '.json', '.js', '.jsx']
   }
 };
 

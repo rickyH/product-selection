@@ -7,7 +7,7 @@ export default class HelloWorld extends Component {
     className: PropTypes.string,
     count: PropTypes.number
   };
-
+  
   constructor(props) {
     super(props);
     this.state = {
