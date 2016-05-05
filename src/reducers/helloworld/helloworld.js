@@ -15,11 +15,12 @@ export default function reducer(state = initialState, action = {}) {
         loading: true
       };
     case GET_MESSAGE:
+      console.log('GET_MESSAGE');
       return {
         ...state,
         loading: false,
         loaded: true,
-        message: action.result,
+        message: action.message,
         error: null
       };
     case GETTING_MESSAGE_FAILED:
@@ -34,9 +35,10 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export function message(passedMessage) {
+export function getMessage(passedMessage) {
+  /* TODO: Instead of getteing this message it should recieve it from the server */
   return {
-    type: MESSAGE,
+    type: GET_MESSAGE,
     message: passedMessage
   };
 }
