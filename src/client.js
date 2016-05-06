@@ -1,11 +1,22 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
 import { Home } from 'containers';
 import reducer from 'reducers';
 
-const store = createStore(reducer);
+function configureStore(initialState) {
+  return createStore(
+    reducer,
+    initialState,
+    applyMiddleware(
+      thunkMiddleware
+    )
+  );
+}
+
+const store = configureStore();
 console.log(store);
 console.log(store.getState());
 

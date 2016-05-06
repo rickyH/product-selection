@@ -29,11 +29,11 @@ export default class Home extends Component {
   };
 
   componentDidMount() {
-    this.props.dispatch(getMessage('Changed the message'));
+    this.props.dispatch(getMessage());
     // getMessage();
   }
 
-  render() { 
+  render() {
     return (
       <div className="page-home">
         test: {this.props.message}

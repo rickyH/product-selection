@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 const GET_MESSAGE = 'component/helloworld/GET_MESSAGE';
 const GETTING_MESSAGE = 'component/helloworld/GETTING_MESSAGE';
 const GETTING_MESSAGE_FAILED = 'component/helloworld/GETTING_MESSAGE';
@@ -28,17 +30,53 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         loading: false,
         loaded: false,
-        error: action.error
+        error: action.error,
+        message: action.error
       };
     default:
       return state;
   }
 }
 
-export function getMessage(passedMessage) {
-  /* TODO: Instead of getteing this message it should recieve it from the server */
+/* TODO: move to actions folder */
+export function getMessage() {
+  return dispatch => {
+    dispatch(requestMessage())
+    return fetch(`http://localhost:3030/hello`)
+      .then(response => response.json())
+      .then(json => dispatch(receivedMessage(json)))
+      .catch(err => dispatch(receivedMessageFailed(err)));
+  }
+}
+
+function requestMessage () {
+  return {
+    type: GETTING_MESSAGE
+  }
+}
+
+function receivedMessage (messageJSON) {
+  const message = messageJSON.message || "-";
   return {
     type: GET_MESSAGE,
-    message: passedMessage
+    message
   };
 }
+
+function receivedMessageFailed (err) {
+  return {
+    type: GETTING_MESSAGE_FAILED,
+    error: err
+  }
+}
+
+// export function getMessage() {
+//   /* TODO: Instead of getteing this message it should recieve it from the server */
+//   return {
+//     type: GET_MESSAGE,
+//     message: passedMessage,
+//     promise: (client) => client.post('/hello', {
+//       data: widget
+//     })
+//   };
+// }
