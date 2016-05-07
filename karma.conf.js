@@ -5,7 +5,7 @@ const extractCSS = new ExtractTextPlugin('style.css', { allChunks: true });
 module.exports = function (config) {
   config.set({
 
-    browsers: [ 'PhantomJS' /* , 'Chrome' */ ],
+    browsers: [ 'PhantomJS' ],
 
     singleRun: !!process.env.CI,
 
@@ -50,14 +50,14 @@ module.exports = function (config) {
         extensions: ['', '.json', '.js']
       },
       plugins: [
-        new webpack.IgnorePlugin(/\.json$/),
-        new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({
-          __CLIENT__: true,
-          __SERVER__: false,
-          __DEVELOPMENT__: true,
-          __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
-        }),
+        // new webpack.IgnorePlugin(/\.json$/),
+        // // new webpack.NoErrorsPlugin(),
+        // new webpack.DefinePlugin({
+        //   __CLIENT__: true,
+        //   __SERVER__: false,
+        //   __DEVELOPMENT__: true,
+        //   __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
+        // }),
         extractCSS
       ]
     },
