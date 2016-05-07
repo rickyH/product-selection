@@ -1,0 +1,25 @@
+
+.global-footer {
+  background: #f4f4f4;
+  min-height: 82px;
+  .container {
+    min-height: 82px;
+    // border-top: 1px solid #dcdcdc;
+    .sprite-sky-logo {
+      display: block;
+      height: 45px;
+      width: 72px;
+      background-image: url('/src/static/images/sky-logo-footer.png');
+      float: left;
+      margin: 18px 0 14px;
+    }
+
+    .copyright {
+      font-size: 14px;
+      line-height: 2em;
+      color: #666;
+      display: inline-block;
+      margin: 34px 0 0 20px;
+    }
+  }
+}

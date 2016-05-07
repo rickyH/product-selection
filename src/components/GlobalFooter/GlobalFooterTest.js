@@ -1,0 +1,3 @@
+describe('Component - Global Footer', () => {
+
+});

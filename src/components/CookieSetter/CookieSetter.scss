@@ -1,0 +1,24 @@
+
+.cookie-setter {
+  cursor: pointer;
+  border: 1px solid hsla(0,0%,100%,.2);
+  padding: 5px;
+  background: hsla(0,0%,100%,.1);
+
+  .tile-inner {
+    background: #fff;
+    padding: 20px;
+    h2 {
+      margin: 0 0 10px 0;
+    }
+
+    p {
+      margin: 0px;
+    }
+
+  }
+
+  &:hover {
+    color: red;
+  }
+}

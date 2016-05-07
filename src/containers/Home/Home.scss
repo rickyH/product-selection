@@ -1,12 +1,12 @@
 
 .page-home {
-  color: red;
-  span {
-    color: lightblue;
-    margin-left: 10px;
-    cursor: ponter;
-    &:hover{
-      color: orange;
+  height: 100%;
+  .margin-tweeker {
+    margin-top: -100px;
+
+    > div {
+      padding-left: 0px;
+      padding-right: 30px;
     }
   }
 }
