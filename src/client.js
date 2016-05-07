@@ -1,10 +1,12 @@
+require('./theme/style/main.scss');
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import { Home } from 'containers';
+import createRoutes from 'routes/routes';
 import reducer from 'reducers';
+import { browserHistory } from 'react-router';
 
 function configureStore(initialState) {
   return createStore(
@@ -17,14 +19,10 @@ function configureStore(initialState) {
 }
 
 const store = configureStore();
-console.log(store);
-console.log(store.getState());
 
 render(
   <Provider store={store} key="provider">
-    <div>
-      <Home />
-    </div>
+    {createRoutes(browserHistory)}
   </Provider>,
   document.getElementById('root')
 );

@@ -3,18 +3,18 @@ import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 // import configureStore from 'store/configureStore';
 
-import App from 'containers/App';
-import Intro from 'containers/Intro';
-import Questions from 'containers/Questions';
-import Question from 'containers/Question';
+import {
+  App,
+  Home,
+  ProductSelection
+} from 'containers';
 
-/* From the example: https://github.com/mz026/universal-redux-template/blob/master/app/routes/index.js */
 export default function (history) {
   return (
     <Router history={history}>
       <Route path="/" component={App}>
-        <Route path="questions" component={Questions} />
-        <IndexRoute component={Intro} />
+        <Route path="product-selection" component={ProductSelection} />
+        <IndexRoute component={Home} />
       </Route>
     </Router>
   );

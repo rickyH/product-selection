@@ -1,9 +1,9 @@
 require('./Home.scss');
 import React, { Component, PropTypes } from 'react';
-import { Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { HelloWorld } from 'components';
 import { getMessage } from 'reducers/helloworld/helloworld';
+import { Link } from 'react-router';
 // import { asyncConnect } from 'redux-async-connect';
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 
@@ -30,7 +30,6 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.props.dispatch(getMessage());
-    // getMessage();
   }
 
   render() {
@@ -38,6 +37,7 @@ export default class Home extends Component {
       <div className="page-home">
         test: {this.props.message}
         <HelloWorld count={10} className="hello-mars" />
+        <Link to="/product-selection">Product Selection</Link>
       </div>
     );
   }

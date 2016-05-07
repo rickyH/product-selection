@@ -1,0 +1,60 @@
+
+// TODO: Get webpack working with @import
+// @import('theme/stsle.config')
+// @import('/src/theme/style/config.scss');
+.global-header {
+  background: #fff;
+
+  // TODO: Add mobile styles.
+  // .sprite-sky-logo{
+  //   background-image: url('/src/static/images/sky-logo-redesign-mobile-retina');
+  // }
+  .sprite-sky-logo {
+    display: block;
+    height: 52px;
+    width: 82px;
+    background-image: url('/src/static/images/sky-logo-redesign.png');
+    float: left;
+    margin: 18px 0 14px;
+  }
+
+  nav {
+    float: left;
+    clear: left;
+    padding: 0 0 10px 0;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+        a {
+          display: inline-block;
+          padding: 3px 20px;
+          color: #000; // TODO: this style should be global.
+
+          &.active-header {
+            font-weight: bold;
+            text-decoration: none;
+          }
+
+          &:hover{
+            color: #0070a5;
+            text-decoration: underline;
+          }
+
+        }
+
+        &:first-child{
+          a {
+            padding-left: 0px;
+          }
+        }
+
+      }
+    }
+    font-size: 1.12em;
+  }
+
+}
