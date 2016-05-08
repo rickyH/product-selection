@@ -15,10 +15,9 @@
     p {
       margin: 0px;
     }
-
   }
 
   &:hover {
-    color: red;
+    h2, p {color: #0070a5;}
   }
 }

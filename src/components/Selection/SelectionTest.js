@@ -1,3 +1,3 @@
-describe('Component - Cookie Setter', () => {
+describe('Component - Selection', () => {
 
 });

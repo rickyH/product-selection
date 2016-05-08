@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 const SELECT_PRODUCT = 'component/productSelection/SELECT_PRODUCT';
 const UN_SELECT_PRODUCT = 'component/productSelection/UN_SELECT_PRODUCT';
 
@@ -39,7 +41,7 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-
+/* Actions */
 export function selectProduct(productId) {
   return {
     type: SELECT_PRODUCT,
@@ -78,9 +80,12 @@ function receivedProductsFailed(err) {
 export function getProducts() {
   return dispatch => {
     dispatch(requestProducts());
-    return fetch('http://localhost:3030/products')
+    return fetch('http://localhost:3030/products', {
+      credentials: 'include'
+    })
       .then(response => response.json())
       .then(json => {
+        console.log('json', json);
         const products = json.products || json;
         return products;
       })

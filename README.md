@@ -10,7 +10,10 @@ npm install
 ```bash
 npm start
 ```
+## Viewing the application
+Visit [http://localhost:5000](http://localhost:5000) to view the application
 
 ## Remaining tasks
-Create a production version (not use a dev-server).
-Fix webkit to allow sass @import
+* Create a production version (not use a dev-server).
+* Fix webkit to allow sass @import
+* Make the application full responsive

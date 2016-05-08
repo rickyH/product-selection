@@ -14,7 +14,7 @@ export default class Hero extends Component {
     let { backgroundImage } = this.props;
     backgroundImage = backgroundImage || '';
     return (
-      <section className="hero" style={{ backgroundImage: `url(${backgroundImage})`}}>
+      <section className="hero" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="container-wrap">
           <div className="container">
             <h3 className="hero-title">{title}</h3>

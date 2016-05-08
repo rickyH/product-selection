@@ -16,17 +16,17 @@ export default class Home extends Component {
           <Col md={6}>
             <CookieSetter
               title="Liverpool"
-              subTitle="Set the cookie to Liverpool"
+              subTitle="Set the cookie to a valid Liverpool customerID"
               cookieName="customerID"
-              cookieValue="LIVERPOOL"
+              cookieValue="36893900"
             />
           </Col>
           <Col md={6}>
             <CookieSetter
               title="London"
-              subTitle="Set the cookie to London"
+              subTitle="Set the cookie to a valid London customerID"
               cookieName="customerID"
-              cookieValue="LONDON"
+              cookieValue="26387500"
             />
           </Col>
         </Grid>

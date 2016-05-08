@@ -3,8 +3,16 @@
   .personalise-selection {
     min-height: 500px;
   }
-
-  .basket-item {
+  .basket-items {
+    margin-bottom: 20px;
+    .basket-item {
       width: 100%;
+      background-image: url('/src/static/images/fat-chevron.png');
+      background-repeat: no-repeat;
+      background-position: 0px center;
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 2em;
+    }
   }
 }
