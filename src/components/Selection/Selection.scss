@@ -1,0 +1,31 @@
+
+.selection {
+  display: block;
+  background: #0073c5;
+  width: 100%;
+  text-align: center;
+  padding: 20px 0px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 200ms ease-out;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  &:hover {
+    background-color: #003663;
+  }
+
+  &.selection-selected {
+    background-color: #6dbb00;
+    &:hover {
+      background-color: #6dbb00;
+    }
+  }
+
+  input {
+    visibility: hidden;
+  }
+
+}

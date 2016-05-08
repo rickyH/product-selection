@@ -12,7 +12,7 @@ export default class Home extends Component {
           title="Setting your cookie"
           subTitle="Click an option below to set a cookie"
         />
-      <Grid className="margin-tweeker">
+        <Grid className="margin-tweeker grid">
           <Col md={6}>
             <CookieSetter
               title="Liverpool"

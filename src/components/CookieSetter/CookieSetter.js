@@ -18,7 +18,9 @@ export default class CookieSetter extends Component {
   }
 
   render() {
-    const { title, subTitle, className } = this.props;
+    const { title, subTitle } = this.props;
+    let { className } = this.props;
+    className = className || '';
     return (
       <div className={`cookie-setter ${className}`} onClick={this.handleClick}>
         <div className="tile-inner">
