@@ -10,3 +10,7 @@ npm install
 ```bash
 npm start
 ```
+
+## Remaining tasks
+Create a production version (not use a dev-server).
+Fix webkit to allow sass @import
