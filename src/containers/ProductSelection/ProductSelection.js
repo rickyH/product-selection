@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { Grid, Col, Button } from 'react-bootstrap';
 import { Selection } from 'components';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+
 import {
   selectProduct,
   unSelectProduct,
@@ -96,33 +98,47 @@ export default class ProductSelection extends Component {
 
   /* TODO: Selections need to be loaded from server... */
   render() {
+    const requestError = this.props.productSelection.error;
     return (
       <div className="page-product-selection">
         <section className="container page-section-header">
           <h1>Personalise your selection</h1>
         </section>
-        <div className="page-section-main">
-          <section className="container">
-            <h2>Add channels to your Sky bundle</h2>
-          </section>
-          <Grid className="grid personalise-selection">
-            <Col md={4}>
-              <h3>Sports</h3>
-              {this.renderProducts('sports')}
-            </Col>
-            <Col md={4}>
-              <h3>News</h3>
-              {this.renderProducts('news')}
-            </Col>
-            <Col md={4}>
-              <h3>Basket</h3>
-              <div className="basket-items">
-                {this.renderSelectedProducts()}
-              </div>
-              <Button key="submit-button" bsSize="large" block>Checkout</Button>
-            </Col>
-          </Grid>
-        </div>
+        {!requestError &&
+          <div className="page-section-main">
+            <section className="container">
+              <h2>Add channels to your Sky bundle</h2>
+            </section>
+            <Grid className="grid personalise-selection">
+              <Col md={4}>
+                <h3>Sports</h3>
+                {this.renderProducts('sports')}
+              </Col>
+              <Col md={4}>
+                <h3>News</h3>
+                {this.renderProducts('news')}
+              </Col>
+              <Col md={4}>
+                <h3>Basket</h3>
+                <div className="basket-items">
+                  {this.renderSelectedProducts()}
+                </div>
+                <Button key="submit-button" bsSize="large" block>Checkout</Button>
+              </Col>
+            </Grid>
+          </div>
+        }
+        {requestError &&
+          <div className="page-section-main">
+            <section className="container">
+              <h2>No Location</h2>
+              <p>
+                Please make sure you have a location cookie set,
+                Return to the <Link to="/">home page</Link> to set a cookie
+              </p>
+            </section>
+          </div>
+        }
       </div>
     );
   }

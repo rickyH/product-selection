@@ -24,7 +24,7 @@ function resolveProducts(locationID) {
 export default function catalogService(locationID) {
   return new Promise((resolve, reject) => {
     if (!locationID) {
-      reject('This service requires a valid locationID.');
+      reject({ err: 'This service requires a valid locationID.' });
     } else {
       resolve(resolveProducts(locationID));
     }

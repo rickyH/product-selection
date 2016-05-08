@@ -18,11 +18,17 @@ app.use(cookieParser());
 
 /* Return the product list */
 app.get('/products', (req, res) => {
+  /* First get the locationID based on the customerID */
   const locationID = customerLocationService(req);
-  const products = catalogService(locationID);
-  products.then((data) => {
-    res.json(data);
-  });
+  if (!locationID) {
+    /* Not ideal to send a server error here. Should return error object */
+    res.status(500).end('No Location set');
+  } else {
+    const products = catalogService(locationID);
+    products.then((data) => {
+      res.json(data);
+    });
+  }
 });
 
 app.post('/checkout', (req, res) => {
@@ -34,7 +40,7 @@ app.post('/checkout', (req, res) => {
 });
 
 app.use((req, res) => {
-  res.status(404).end('NOT FOUND\n');
+  res.status(404).end('NOT FOUND');
 });
 
 const server = app.listen(3030, () => {

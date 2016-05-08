@@ -15,5 +15,6 @@ Visit [http://localhost:5000](http://localhost:5000) to view the application
 
 ## Remaining tasks
 * Create a production version (not use a dev-server).
-* Fix webkit to allow sass @import
-* Make the application full responsive
+* Fix webkit to allow sass @import.
+* Make the application stylesheets full responsive.
+# Resolve npm dependencies.

@@ -34,7 +34,13 @@ export default function reducer(state = initialState, action = {}) {
     case GET_PRODUCTS:
       return {
         ...state,
+        error: false,
         products: action.products
+      };
+    case GETTING_PRODUCTS_FAILED:
+      return {
+        ...state,
+        error: action.error
       };
     default:
       return state;
@@ -70,10 +76,10 @@ function receivedProducts(returnedProducts) {
   };
 }
 
-function receivedProductsFailed(err) {
+function receivedProductsFailed() {
   return {
     type: GETTING_PRODUCTS_FAILED,
-    error: err
+    error: true
   };
 }
 
@@ -85,7 +91,6 @@ export function getProducts() {
     })
       .then(response => response.json())
       .then(json => {
-        console.log('json', json);
         const products = json.products || json;
         return products;
       })
