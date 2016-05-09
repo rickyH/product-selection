@@ -45,10 +45,10 @@ this is a requirement for the product page.
 * Fade in page when loading is true to avoid flicker.
 * Add a method for removing an item from the basket
 * Make the application stylesheets fully responsive.
+* Add container tests.
 * Resolve npm dependencies errors.
 * Run the API tests on another port.
 * Add a config file for the location and port settings.
 * Update Helmet meta/title for each page.
 * Hide UI when state is set to loading (Show Spinner).
 * Tidy and Comment.
-* Fix all linting issues.
