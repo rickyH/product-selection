@@ -21,6 +21,7 @@ export default class ConfirmationPage extends Component {
     clearConfirmation: PropTypes.func.isRequired
   };
 
+  /* Remove the confirmation from state when the page is left */
   componentWillUnmount() {
     this.props.clearConfirmation();
   }
@@ -35,9 +36,10 @@ export default class ConfirmationPage extends Component {
   renderConfirmedProducts = () => {
     const { confirmation } = this.props;
     const products = [];
-
     products.push(
-      <span key="sky-q" className="sky-q">Sky Q Silver TV</span>
+      <span key="sky-q" className="sky-q">
+        Sky Q Silver TV
+      </span>
     );
 
     if (confirmation.data && confirmation.data.selectedProducts) {
@@ -75,7 +77,15 @@ export default class ConfirmationPage extends Component {
       {completed &&
         <div className="page-section-main">
           <section className="container">
-            <h2>Your Bundle</h2>
+            <h2>
+              Congratulatins
+            </h2>
+            <p>
+              The following channels have been added to your Sky package
+              <span className="customer-id">
+                {confirmation.customerID ? `(${confirmation.customerID})` : ''}
+              </span>
+            </p>
             <div className="confirmation-dialog">
               {this.renderConfirmedProducts()}
             </div>

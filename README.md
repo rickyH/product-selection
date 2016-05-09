@@ -15,20 +15,20 @@ npm run test-api
 
 ### Client Tests
 ```bash
-// Note you can leave this running
+# Note you can leave this running
 npm test
 ```
 
-## Running The App
+## Running the application
+Please wait for "webpack: bundle is now VALID" before visiting http://localhost:5000
 ```bash
 npm start
 ```
 
-## Viewing the application
 Alternatively for better debugging run the API and dev-server separately
 ```bash
 npm run dev-server
-// Then in a separate instance
+# Then in a separate terminal instance
 npm run api-test
 ```
 
@@ -36,19 +36,19 @@ npm run api-test
 Visit [http://localhost:5000](http://localhost:5000) to view the application
 
 ### Setting the customerID cookie
-On the home page there are two buttons that set the customerID,
+On the home page there are two buttons that will set the customerID,
 this is a requirement for the product page.
 
 ## Remaining tasks
 * Create a production version (not use a webkit-dev-server).
 * Fix webkit loaders to allow sass @import.
+* Fade in page when loading is true to avoid flicker.
 * Add a method for removing an item from the basket
 * Make the application stylesheets fully responsive.
 * Resolve npm dependencies errors.
 * Run the API tests on another port.
 * Add a config file for the location and port settings.
-** Update Helmet meta/title for each page.
-** Hide UI when state is set to loading (Show Spinner).
-** Tidy and Comment.
-** Fix all linting issues.
-** Add Upgrade Guide.
+* Update Helmet meta/title for each page.
+* Hide UI when state is set to loading (Show Spinner).
+* Tidy and Comment.
+* Fix all linting issues.

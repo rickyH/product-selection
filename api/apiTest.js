@@ -13,29 +13,65 @@ describe('Test the API', () => {
     done();
   });
 
-  // describe('Get /hello', () => {
-  //   it('responds with JSON', (done) => {
-  //     request
-  //     .get('/hello')
-  //     .set('Content-Type', 'application/json')
-  //     .set('cookie', 'customerID=2137919283;')
-  //     .expect(200)
-  //     .end((err, res) => {
-  //       should.not.exist(err);
-  //       should.exist(res.body);
-  //       expect(JSON.stringify(res.body)).to.equal(JSON.stringify({ hello: "world" }));
-  //       done();
-  //     });
-  //   });
-  // });
+  describe('Get /products', () => {
+    it('A valid locationID responds with products', (done) => {
+      request
+      .get('/products')
+      .set('Content-Type', 'application/json')
+      .set('cookie', 'customerID=36893900;')
+      .expect(200)
+      .end((err, res) => {
+        should.not.exist(err);
+        should.exist(res.body);
+        should.exist(res.body.products);
+        done();
+      });
+    });
+
+    it('A valid Liverpool locationID responds with Liverpool Programmes', (done) => {
+      request
+      .get('/products')
+      .set('Content-Type', 'application/json')
+      .set('cookie', 'customerID=36893900;')
+      .expect(200)
+      .end((err, res) => {
+        should.not.exist(err);
+        expect(res.body.products[0].uniqueId).equal('sports-liverpool');
+        done();
+      });
+    });
+
+    it('A valid London locationID responds with London Programmes', (done) => {
+      request
+      .get('/products')
+      .set('Content-Type', 'application/json')
+      .set('cookie', 'customerID=26387500;')
+      .expect(200)
+      .end((err, res) => {
+        should.not.exist(err);
+        expect(res.body.products[0].uniqueId).equal('sports-arsenal');
+        expect(res.body.products[1].uniqueId).equal('sports-chelsea');
+        done();
+      });
+    });
+
+    it('An invalid customerID responds with an error', (done) => {
+      request
+      .get('/products')
+      .set('Content-Type', 'application/json')
+      .set('cookie', 'customerID=1123123123;')
+      .expect(500, 'There was a problem retrieving the customer information', done);
+    });
+    /* TODO: Add tests to check for sky-sports and sky-news */
+  });
+
 
   describe('Post /checkout', () => {
-    /* Close the server when the tests are done, this is required for --watch */
-    it('responds with JSON', (done) => {
+    it('Checkout returns the data passed up plus the customerID', (done) => {
       request
       .post('/checkout')
       .set('Content-Type', 'application/json')
-      .set('cookie', 'customerID=2137919283;')
+      .set('cookie', 'customerID=36893900;')
       .send({ sendme: 'up' })
       .expect(200)
       .end((err, res) => {
@@ -44,7 +80,7 @@ describe('Test the API', () => {
         const expectedCheckout = {
           confirmation: {
             completed: true,
-            customerID: '2137919283',
+            customerID: '36893900',
             data: {
               sendme: 'up'
             }
@@ -53,6 +89,14 @@ describe('Test the API', () => {
         expect(JSON.stringify(res.body)).to.equal(JSON.stringify(expectedCheckout));
         done();
       });
+    });
+
+    it('Not sending a customerID should return an error', (done) => {
+      request
+      .post('/checkout')
+      .set('Content-Type', 'application/json')
+      .send({ sendme: 'up' })
+      .expect(500, 'There was a problem processing your order', done);
     });
   });
 });

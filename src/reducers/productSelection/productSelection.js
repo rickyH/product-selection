@@ -7,6 +7,8 @@ const GET_PRODUCTS = 'component/productSelection/GET_PRODUCTS';
 const GETTING_PRODUCTS = 'component/productSelection/GETTING_PRODUCTS';
 const GETTING_PRODUCTS_FAILED = 'component/productSelection/GETTING_PRODUCTS_FAILED';
 
+const CLEAR_SELECTED_PRODUCTS = 'component/productSelection/CLEAR_SELECTED_PRODUCTS';
+
 const initialState = {
   loaded: false,
   products: [],
@@ -51,6 +53,11 @@ export default function reducer(state = initialState, action = {}) {
         loaded: false,
         error: action.error
       };
+    case CLEAR_SELECTED_PRODUCTS:
+      return {
+        ...state,
+        selected: {}
+      };
     default:
       return state;
   }
@@ -88,6 +95,13 @@ function receivedProducts(returnedProducts) {
 function receivedProductsFailed() {
   return {
     type: GETTING_PRODUCTS_FAILED,
+    error: true
+  };
+}
+
+export function clearSelectedProducts() {
+  return {
+    type: CLEAR_SELECTED_PRODUCTS,
     error: true
   };
 }

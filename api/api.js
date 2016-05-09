@@ -22,7 +22,7 @@ app.get('/products', (req, res) => {
   /* Get the locationID based on the customerID */
   const locationID = customerLocationService(req);
   if (!locationID) {
-    res.status(500).end('No Location set');
+    res.status(500).end('There was a problem retrieving the customer information');
   } else {
     const products = catalogService(locationID);
     products.then((data) => {
@@ -37,14 +37,18 @@ app.get('/products', (req, res) => {
   and the user's name returned.
 */
 app.post('/checkout', (req, res) => {
-  const locationIdCookie = req.cookies.customerID || false;
-  res.json({
-    confirmation: {
-      completed: true,
-      customerID: locationIdCookie,
-      data: req.body
-    }
-  });
+  const customerIDCookie = req.cookies.customerID || false;
+  if (!customerIDCookie) {
+    res.status(500).end('There was a problem processing your order');
+  } else {
+    res.json({
+      confirmation: {
+        completed: true,
+        customerID: customerIDCookie,
+        data: req.body
+      }
+    });
+  }
 });
 
 /* Send a 404 if the request isn't handeled above */

@@ -9,9 +9,11 @@ import { checkout } from 'reducers/confirmation/confirmation';
 import {
   selectProduct,
   unSelectProduct,
-  getProducts
+  getProducts,
+  clearSelectedProducts
 } from 'reducers/productSelection/productSelection';
 
+/* Map state and dispatch to props */
 @connect(
   state => ({
     productSelection: state.productSelection
@@ -21,10 +23,12 @@ import {
     unSelectProduct,
     selectProduct,
     getProducts,
+    clearSelectedProducts,
     checkout
   }
 )
 
+/* The container for the product selection page */
 export default class ProductSelection extends Component {
   static propTypes = {
     productSelection: PropTypes.object,
@@ -33,13 +37,21 @@ export default class ProductSelection extends Component {
     unSelectProduct: PropTypes.func.isRequired,
     selectProduct: PropTypes.func.isRequired,
     getProducts: PropTypes.func.isRequired,
+    clearSelectedProducts: PropTypes.func.isRequired,
     checkout: PropTypes.func.isRequired
   };
 
+  /* Get the products from the server when the component mounts */
   componentDidMount() {
     this.props.getProducts();
   }
 
+  /* Remove the product selection from state when the page is left */
+  componentWillUnmount() {
+    this.props.clearSelectedProducts();
+  }
+
+  /* Handle the click of a product selector */
   selectionClick = (passedProps) => {
     /* Return if no uniqueId is returned */
     if (!passedProps.uniqueId) {
@@ -55,6 +67,7 @@ export default class ProductSelection extends Component {
     return true;
   }
 
+  /* Handle the checkout of a product */
   checkout = () => {
     const selected = this.props.productSelection.selected || {};
     this.props.checkout(selected);
@@ -87,6 +100,7 @@ export default class ProductSelection extends Component {
     return productElements;
   };
 
+  /* Render the selected products to the basket */
   renderSelectedProducts = () => {
     /* For each of the selected items, display them in the basket */
     const products = this.props.productSelection.products || [];
@@ -114,7 +128,6 @@ export default class ProductSelection extends Component {
     return selectedElements;
   }
 
-  /* TODO: Selections need to be loaded from server... */
   render() {
     const requestError = this.props.productSelection.error;
     return (
