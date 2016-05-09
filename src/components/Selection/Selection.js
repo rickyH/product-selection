@@ -13,7 +13,7 @@ export default class Selection extends Component {
   };
 
   handleClick = (event) => {
-    /* Prevent a double click when the event from the label is passed */
+    /* Prevent a double click when the event from the label is bubbled */
     if (event.target.tagName !== 'INPUT') {
       const { clickEvent } = this.props;
       if (clickEvent) {
