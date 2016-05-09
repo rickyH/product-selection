@@ -8,7 +8,7 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    console.log('Welcom to the app');
+    console.log('Welcom to the app @rickyharrison');
   }
 
   render() {

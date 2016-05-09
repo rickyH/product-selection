@@ -4,27 +4,40 @@ import { Grid, Col, Button } from 'react-bootstrap';
 import { Selection } from 'components';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-
+import { routerActions } from 'react-router-redux';
+import { checkout } from 'reducers/confirmation/confirmation';
 import {
   selectProduct,
   unSelectProduct,
   getProducts
-} from 'reducers/productSelectionReducer/productSelectionReducer';
+} from 'reducers/productSelection/productSelection';
 
 @connect(
   state => ({
     productSelection: state.productSelection
-  })
+  }),
+  {
+    pushState: routerActions.push,
+    unSelectProduct,
+    selectProduct,
+    getProducts,
+    checkout
+  }
 )
 
 export default class ProductSelection extends Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    productSelection: PropTypes.object
+    productSelection: PropTypes.object,
+    history: PropTypes.object.isRequired,
+    pushState: PropTypes.func.isRequired,
+    unSelectProduct: PropTypes.func.isRequired,
+    selectProduct: PropTypes.func.isRequired,
+    getProducts: PropTypes.func.isRequired,
+    checkout: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    this.props.dispatch(getProducts());
+    this.props.getProducts();
   }
 
   selectionClick = (passedProps) => {
@@ -34,12 +47,17 @@ export default class ProductSelection extends Component {
     }
 
     if (passedProps.selected) {
-      this.props.dispatch(unSelectProduct(passedProps.uniqueId));
+      this.props.unSelectProduct(passedProps.uniqueId);
     } else {
-      this.props.dispatch(selectProduct(passedProps.uniqueId));
+      this.props.selectProduct(passedProps.uniqueId);
     }
     selectProduct();
     return true;
+  }
+
+  checkout = () => {
+    const selected = this.props.productSelection.selected || {};
+    this.props.checkout(selected);
   }
 
   /* Create a selection option for each of the products returned from the server */
@@ -123,7 +141,13 @@ export default class ProductSelection extends Component {
                 <div className="basket-items">
                   {this.renderSelectedProducts()}
                 </div>
-                <Button key="submit-button" bsSize="large" block>Checkout</Button>
+                <Link to="/confirmation" className="link-button">
+                  <Button
+                    onClick={this.checkout}
+                    key="submit-button"
+                    bsSize="large" block
+                  >Checkout</Button>
+                </Link>
               </Col>
             </Grid>
           </div>

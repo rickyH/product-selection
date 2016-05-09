@@ -6,7 +6,8 @@ import { Router, Route, IndexRoute } from 'react-router';
 import {
   App,
   Home,
-  ProductSelection
+  ProductSelection,
+  ConfirmationPage
 } from 'containers';
 
 export default function (history) {
@@ -14,6 +15,7 @@ export default function (history) {
     <Router history={history}>
       <Route path="/" component={App}>
         <Route path="product-selection" component={ProductSelection} />
+        <Route path="confirmation" component={ConfirmationPage} />
         <IndexRoute component={Home} />
       </Route>
     </Router>

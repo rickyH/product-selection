@@ -34,12 +34,21 @@ export default function reducer(state = initialState, action = {}) {
     case GET_PRODUCTS:
       return {
         ...state,
+        loaded: true,
         error: false,
         products: action.products
+      };
+    case GETTING_PRODUCTS:
+      return {
+        ...state,
+        loading: true,
+        loaded: false
       };
     case GETTING_PRODUCTS_FAILED:
       return {
         ...state,
+        loading: false,
+        loaded: false,
         error: action.error
       };
     default:
@@ -90,10 +99,7 @@ export function getProducts() {
       credentials: 'include'
     })
       .then(response => response.json())
-      .then(json => {
-        const products = json.products || json;
-        return products;
-      })
+      .then(json => json.products || json)
       .then(products => dispatch(receivedProducts(products)))
       .catch(err => dispatch(receivedProductsFailed(err)));
   };

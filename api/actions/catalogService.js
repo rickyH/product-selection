@@ -1,3 +1,4 @@
+/* These would be a DB call */
 const products = [
   { uniqueId: 'sports-arsenal', catogary: 'sports', value: 'arsenal', displayText: 'Arsenal TV', location: {LONDON: true} }, //eslint-disable-line
   { uniqueId: 'sports-chelsea', catogary: 'sports', value: 'chelsea', displayText: 'Chelsea TV', location: {LONDON: true} }, //eslint-disable-line
