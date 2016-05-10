@@ -4,6 +4,8 @@ Tests use Mocha with Chai Assertion, supertask for async and react-addons-test-u
 
 ## Installation
 ```bash
+git clone git@github.com:rickyH/product-selection.git
+cd product-selection/
 npm install
 ```
 ## Running tests
