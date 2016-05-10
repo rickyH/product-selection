@@ -13,7 +13,7 @@
     "api": "node bin/api.js",
     "dev-server": "node webpack/webpack-dev-server.js",
     "test": "./node_modules/karma/bin/karma start",
-    "test-api": "./node_modules/mocha/bin/mocha --watch --timeout 5000 $(find api -name '*Test.js') --compilers js:babel-core/register"
+    "test-api": "./node_modules/mocha/bin/mocha --timeout 5000 $(find api -name '*Test.js') --compilers js:babel-core/register"
   },
   "author": "",
   "license": "MIT",
