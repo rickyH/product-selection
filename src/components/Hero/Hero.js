@@ -1,6 +1,7 @@
 require('./Hero.scss');
 import React, { Component, PropTypes } from 'react';
 
+/* A Component for a hero  section of the site */
 export default class Hero extends Component {
 
   static propTypes = {

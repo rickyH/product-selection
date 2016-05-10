@@ -1,13 +1,13 @@
 import fetch from 'isomorphic-fetch';
 
-const SELECT_PRODUCT = 'component/productSelection/SELECT_PRODUCT';
-const UN_SELECT_PRODUCT = 'component/productSelection/UN_SELECT_PRODUCT';
-
-const GET_PRODUCTS = 'component/productSelection/GET_PRODUCTS';
-const GETTING_PRODUCTS = 'component/productSelection/GETTING_PRODUCTS';
-const GETTING_PRODUCTS_FAILED = 'component/productSelection/GETTING_PRODUCTS_FAILED';
-
-const CLEAR_SELECTED_PRODUCTS = 'component/productSelection/CLEAR_SELECTED_PRODUCTS';
+import {
+    SELECT_PRODUCT,
+    UN_SELECT_PRODUCT,
+    GET_PRODUCTS,
+    GETTING_PRODUCTS,
+    GETTING_PRODUCTS_FAILED,
+    CLEAR_SELECTED_PRODUCTS
+} from './productSelectionTypeDef';
 
 const initialState = {
   loaded: false,

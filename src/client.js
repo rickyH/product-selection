@@ -19,16 +19,10 @@ function configureStore(initialState) {
 }
 
 const store = configureStore();
-
+/* Pass the componet through from react-router */
 render(
   <Provider store={store} key="provider">
     {createRoutes(browserHistory)}
   </Provider>,
   document.getElementById('root')
 );
-
-// <Router history={browserHistory} children={routes} key={key} />
-
-// <Provider store={store} key="provider">
-//   <div>Hello World</div>
-// </Provider>,

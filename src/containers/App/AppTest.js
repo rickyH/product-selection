@@ -1,3 +1,3 @@
-describe('Container - Home', () => {
+describe('Container - App', () => {
 
 });

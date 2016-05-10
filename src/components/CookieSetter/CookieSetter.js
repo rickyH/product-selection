@@ -2,6 +2,7 @@ require('./CookieSetter.scss');
 import React, { Component, PropTypes } from 'react';
 import cookie from 'react-cookie';
 
+/* A Component for setting a cookie */
 export default class CookieSetter extends Component {
   static propTypes = {
     noStyle: PropTypes.bool,

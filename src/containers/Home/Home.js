@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Hero, CookieSetter } from 'components';
 import { Grid, Col } from 'react-bootstrap';
 
+/* The Home Page of the app */
 export default class Home extends Component {
   render() {
     return (

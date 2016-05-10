@@ -9,11 +9,6 @@ const extractCSS = new ExtractTextPlugin('style.css', { allChunks: true });
 module.exports = {
   devtool: 'eval',
   entry: './src/client.js',
-  // entry: [
-  //   'webpack-dev-server/client?http://localhost:5000',
-  //   'webpack/hot/only-dev-server',
-  //   './src/client.js'
-  // ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',

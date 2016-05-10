@@ -15,7 +15,7 @@ export default class App extends Component {
     return (
       <div className="page-app">
         <GlobalHeader />
-        {this.props.children}
+          {this.props.children}
         <GlobalFooter />
       </div>
     );

@@ -1,6 +1,7 @@
 require('./Selection.scss');
 import React, { Component, PropTypes } from 'react';
 
+/* A fancy version of a checkbox. */
 export default class Selection extends Component {
   static propTypes = {
     className: PropTypes.string,

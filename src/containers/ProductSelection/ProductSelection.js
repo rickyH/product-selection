@@ -28,7 +28,7 @@ import {
   }
 )
 
-/* The container for the product selection page */
+/* The product selection page */
 export default class ProductSelection extends Component {
   static propTypes = {
     productSelection: PropTypes.object,

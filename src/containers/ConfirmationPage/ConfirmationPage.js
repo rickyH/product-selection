@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { clearConfirmation } from 'reducers/confirmation/confirmation';
 
+/* Map state and dispatch to props */
 @connect(
   state => ({
     products: state.productSelection.products,
@@ -14,6 +15,7 @@ import { clearConfirmation } from 'reducers/confirmation/confirmation';
   }
 )
 
+/* The Confirmation Page */
 export default class ConfirmationPage extends Component {
   static propTypes = {
     confirmation: PropTypes.object,

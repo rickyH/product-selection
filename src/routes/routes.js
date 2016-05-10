@@ -1,7 +1,5 @@
 import React from 'react';
-// import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute } from 'react-router';
-// import configureStore from 'store/configureStore';
 
 import {
   App,
@@ -10,6 +8,7 @@ import {
   ConfirmationPage
 } from 'containers';
 
+/* Set up the routes for the application */
 export default function (history) {
   return (
     <Router history={history}>
